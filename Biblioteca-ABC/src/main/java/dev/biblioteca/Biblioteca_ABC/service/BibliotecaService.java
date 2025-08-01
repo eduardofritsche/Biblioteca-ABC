@@ -17,4 +17,30 @@ public class BibliotecaService {
     public List<Biblioteca> findAll(){
         return bibliotecaRepository.getBibliotecas();
     }
+
+    public Biblioteca save(Biblioteca biblioteca){
+        return bibliotecaRepository.save(biblioteca);
+    }
+
+    public Biblioteca findById(Integer id){
+        return bibliotecaRepository.findById(id);
+    }
+
+    public void delete(Integer id){
+        bibliotecaRepository.delete(id);
+    }
+
+    public Biblioteca update(Integer id, Biblioteca biblioteca){
+        Biblioteca update = findById(id);
+
+        if(biblioteca.getNome() != null && !biblioteca.getNome().isBlank()){
+            update.setNome(biblioteca.getNome());
+        }
+
+        if(biblioteca.getTelefone() != null && !biblioteca.getTelefone().isBlank()){
+            update.setTelefone(biblioteca.getTelefone());
+        }
+
+        return bibliotecaRepository.update(update.getId(), update);
+    }
 }
