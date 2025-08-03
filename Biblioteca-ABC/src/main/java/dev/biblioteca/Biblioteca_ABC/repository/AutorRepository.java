@@ -38,18 +38,18 @@ public class AutorRepository {
     }
 
 
-    public Autor findById(Integer id){
+    public Autor findById(Integer idAutor){
         for(Autor autor: autores){
-            if(autor.getIdAutor().equals(id)){
+            if(autor.getIdAutor().equals(idAutor)){
                 return autor;
             }
         }
         return null;
     }
 
-    public void delete(Integer id){
+    public void delete(Integer idAutor){
         for(Autor autor: autores){
-            if(autor.getIdAutor().equals(id)){
+            if(autor.getIdAutor().equals(idAutor)){
                 autores.remove(autores);
                 break;
             }
